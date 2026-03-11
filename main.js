@@ -16,6 +16,7 @@ class LottoBall extends HTMLElement {
     wrapper.style.color = 'white';
     wrapper.style.fontSize = '20px';
     wrapper.style.fontWeight = 'bold';
+    wrapper.style.boxShadow = '0 2px 4px rgba(0,0,0,0.3)';
     wrapper.textContent = number;
     shadow.appendChild(wrapper);
   }
@@ -23,7 +24,28 @@ class LottoBall extends HTMLElement {
 
 customElements.define('lotto-ball', LottoBall);
 
+// Theme Toggle Logic
+const themeBtn = document.getElementById('theme-btn');
+const body = document.body;
 
+const savedTheme = localStorage.getItem('theme') || 'light';
+body.setAttribute('data-theme', savedTheme);
+updateThemeButtonText(savedTheme);
+
+themeBtn.addEventListener('click', () => {
+  const currentTheme = body.getAttribute('data-theme');
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  
+  body.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateThemeButtonText(newTheme);
+});
+
+function updateThemeButtonText(theme) {
+  themeBtn.textContent = theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+}
+
+// Lotto Generation Logic
 document.getElementById('generate-btn').addEventListener('click', () => {
   const lottoNumbersContainer = document.getElementById('lotto-numbers');
   lottoNumbersContainer.innerHTML = '';
