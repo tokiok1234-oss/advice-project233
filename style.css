@@ -107,7 +107,7 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
     outline: none;
     border-color: var(--btn-bg);
-    ring: 2px solid var(--btn-bg);
+    box-shadow: 0 0 0 2px var(--btn-bg);
 }
 
 textarea {
@@ -141,4 +141,10 @@ textarea {
     margin-top: 2.5rem;
     font-size: 0.75rem;
     opacity: 0.5;
+}
+
+.comments-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--input-border);
 }
