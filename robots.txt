@@ -5,3 +5,4 @@ User-agent: Mediapartners-Google
 Allow: /
 
 Sitemap: https://tokiok1234-oss.github.io/advice-project233/sitemap.xml
+Host: https://tokiok1234-oss.github.io/advice-project233/
